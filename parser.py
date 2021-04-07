@@ -21,8 +21,8 @@ for a given directory tree:
 aka
 '''
 def parser(fileName):
-    html = open(fileName, "r")
-    soup = BeautifulSoup(html, features="html.parser").text
+    html = open(fileName, "rb")
+    soup = BeautifulSoup(html).text
     html.close()
     startIndex = soup.find("On-Line (ETOL).") + 15
     endIndex = soup.find("Top of page")
@@ -48,7 +48,6 @@ def getListOfFiles(dirName):
             allFiles.append(fullPath)
                 
     return allFiles
-
 
 
 def main():  
